@@ -11,6 +11,9 @@ public class Main {
     static User user;
 
     public static void main(String[] args) {
+        HashMap<String, User> allUsers = new HashMap<>();
+        User doug = new User("Doug", "1234");
+        allUsers.put(doug.name, doug);
         Spark.init();
 
         Spark.get( //takes 3 arguments
@@ -35,8 +38,30 @@ public class Main {
                 "/create-user",
                 ((request, response) -> { //anon fxn
                     String name = request.queryParams("indexName");
-                    user = new User(name);
-                    response.redirect("/");
+                    String password = request.queryParams("password");
+                    if (!allUsers.containsKey(name)) {
+                        user = new User(name, password);
+                        allUsers.put(name, user);
+                        response.redirect("/");
+                    } else {
+                        if (password.equalsIgnoreCase(allUsers.get(name).password)){
+                            user = new User (name, password);
+                            response.redirect("/");
+                        } else{
+                            user = null;
+                            response.redirect("/");
+                        }
+                    }
+                    //    user = new User(name);
+                    //} else {
+                     //   if (
+                    //}
+                    //check to see if allUsers has a key of indexName,
+                    //if they don't create user object with indexName and password
+                    //if they do exist, you compare user.password to password
+
+                    //user = new User(name);
+
                     return "";
                 })
 
