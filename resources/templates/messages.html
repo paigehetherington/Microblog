@@ -1,0 +1,16 @@
+<html lang="en">
+
+<form action="/create-message" method="post">
+    <input type="text" placeholder="Enter your message" name="newMessage"/>
+    <button type="submit">Submit</button>
+</form>
+<body>
+Messages by {{name}}
+<ol>
+{{#messages}}
+<li>{{message}}</li>
+{{/messages}}
+</ol>
+
+</body>
+</html>
