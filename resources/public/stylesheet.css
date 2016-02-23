@@ -1,0 +1,15 @@
+body {
+	background-color: orange;
+	color: purple;
+    text-align: center;
+}
+
+
+p {
+font-size: 30px;
+}
+
+img {
+    height: 350px;
+    width: 350px;
+    }
