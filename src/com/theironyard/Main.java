@@ -97,10 +97,10 @@ public class Main {
         );
         Spark.post(
                 "/edit-message",
-                ((request, response) ->  {
+                ((request, response) -> {
                     String editNum = request.queryParams("editNum");
                     int idNum = Integer.valueOf(editNum);
-                    Message edit = user.messages.get(idNum -1);
+                    Message edit = user.messages.get(idNum - 1);
                     String editMessage = request.queryParams("editMessage");
                     edit.message = editMessage;
                     response.redirect("/");
