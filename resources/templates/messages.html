@@ -1,10 +1,14 @@
 <html lang="en">
+<!--<link type="text/css" rel="stylesheet" href="stylesheet.css"/>-- -->
+
+
+<body>
 
 <form action="/create-message" method="post">
     <input type="text" placeholder="Enter your message" name="newMessage"/>
     <button type="submit">Submit</button>
 </form>
-<body>
+
 Messages by {{name}}
 <ol>
 {{#messages}}

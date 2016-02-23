@@ -16,12 +16,12 @@ public class Main {
         allUsers.put(doug.name, doug);
         Spark.init();
 
-        Spark.get( //takes 3 arguments
+        Spark.get( //method call takes 3 arguments, split on 3 lines
                 "/",
-                ((request, response) -> {
+                ((request, response) -> { //anonymous fxn
                     HashMap m = new HashMap();
                     if (user == null) {
-                        return new ModelAndView(m, "index.html");
+                        return new ModelAndView(m, "index.html"); // matches values in java (HM) with html, server side html
                         //injecting values into template
                     } else {
                         m.put("name", user.name); //adds name and messages to HM
